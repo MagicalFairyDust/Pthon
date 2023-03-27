@@ -21,5 +21,4 @@ merge_df2 = pd.merge(dff, dafdil2, left_on = 'idpelangga',right_on='nokwh')
 
 appen_df = pd.concat([merge_df,merge_df2],axis=0,ignore_index=True).sort_values(by=['Join_Count','idpelanggan'],ascending=[False,True]).drop_duplicates(subset='idpelanggan',keep='first')
 
-pivot = pd.pivot_table(appen_df,index='UNITUP',columns='Joint_Count', values='idpelangga',aggfunc='count')
-print (pivot)
+print (appen_df.pivot_table(appen_df,index='UNITUP',columns='Joint_Count', values='idpelangga',aggfunc='count'))
